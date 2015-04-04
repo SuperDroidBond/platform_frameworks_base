@@ -3948,7 +3948,7 @@ public final class Settings {
         /** @hide */
         private static final Validator SHOW_BATTERY_PERCENT_VALIDATOR = sBooleanValidator;
 
-        /** Beginning of ABC custom setttings**/
+        /** Beginning of ColtOS custom setttings**/
 
         /**
          * Use latest screen-on brightness value for Ambient Display
@@ -3961,6 +3961,12 @@ public final class Settings {
          * @hide
          */
         public static final String LAST_DOZE_AUTO_BRIGHTNESS = "last_doze_auto_brightness";
+
+	/**
+         * show the membar in recents
+         *  @hide
+         */
+        public static final String SYSTEMUI_RECENTS_MEM_DISPLAY = "systemui_recents_mem_display";
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
