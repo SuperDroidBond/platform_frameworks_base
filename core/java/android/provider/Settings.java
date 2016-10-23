@@ -4471,6 +4471,15 @@ public final class Settings {
         public static final String STATUS_BAR_CUSTOM_HEADER_SHADOW = "status_bar_custom_header_shadow";
 
         /**
+         * Whether allowing pocket service to register sensors and dispatch informations.
+         *   0 = disabled
+         *   1 = enabled
+         * @author Carlo Savignano
+         * @hide
+         */
+        public static final String POCKET_JUDGE = "pocket_judge";
+
+        /**
          * header image package to use for daylight header - package name - null if default
          * @hide
          */
