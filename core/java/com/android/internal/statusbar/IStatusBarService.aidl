@@ -83,4 +83,5 @@ interface IStatusBarService
      * Colt
      */
     void toggleCameraFlash();
+    void restartUI();
 }
