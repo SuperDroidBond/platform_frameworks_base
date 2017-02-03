@@ -131,6 +131,9 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         mRunningServicesButton = findViewById(R.id.running_services_button);
         mRunningServicesButton.setOnClickListener(this);
 
+        mRunningServicesButton = findViewById(R.id.running_services_button);
+        mRunningServicesButton.setOnClickListener(this);
+
         mAlarmStatusCollapsed = findViewById(R.id.alarm_status_collapsed);
         mAlarmStatus = findViewById(R.id.alarm_status);
         mDateTimeGroup.setOnClickListener(this);
