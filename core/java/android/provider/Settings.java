@@ -4452,7 +4452,13 @@ public final class Settings {
         public static final String QS_QUICKBAR_SCROLL_ENABLED = "qs_quickbar_scroll_enabled";
 
         /**
-         * Whether to use the custom status bar header or not
+         * Which recents style to use
+         * @hide
+         */
+        public static final String RECENTS_LAYOUT_STYLE = "recents_layout_style";
+
+         /**
+	 * Whether to use the custom status bar header or not
          * @hide
          */
         public static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
