@@ -25,7 +25,7 @@ import android.view.MotionEvent;
 import android.view.GestureDetector;
 import android.widget.FrameLayout;
 
-import com.android.internal.util.aospextended.AEXUtils;
+import com.android.internal.util.colt.ColtUtils;
 import com.android.systemui.statusbar.policy.DeadZone;
 
 public class NavigationBarFrame extends FrameLayout {
@@ -45,7 +45,7 @@ public class NavigationBarFrame extends FrameLayout {
                 new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                AEXUtils.switchScreenOff(context);
+                ColtUtils.switchScreenOff(context);
                 return true;
             }
         });
