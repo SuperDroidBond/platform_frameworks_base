@@ -530,6 +530,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     private ArrayList<String> mStoplist = new ArrayList<String>();
     private ArrayList<String> mBlacklist = new ArrayList<String>();
 
+    boolean mLessBoringHeadsUp;
+
     // the tracker view
     int mTrackingPosition; // the position of the top of the tracking view.
 
@@ -6506,6 +6508,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.STATUS_BAR_BATTERY_STYLE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LESS_BORING_HEADS_UP),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -6578,6 +6583,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     || uri.equals(Settings.Secure.getUriFor(
                     Settings.Secure.STATUS_BAR_BATTERY_STYLE))) {
                 updateBatterySettings();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.LESS_BORING_HEADS_UP))) {
+                setUseLessBoringHeadsUp();
             }
         }
 
@@ -6593,6 +6601,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setQuickStatusBarHeader();
             updateRecentsMode();
             updateBatterySettings();
+            setUseLessBoringHeadsUp();
         }
     }
 
@@ -6674,6 +6683,12 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (mQuickStatusBarHeader != null) {
             mQuickStatusBarHeader.updateSettings();
         }
+    }
+
+    private void setUseLessBoringHeadsUp() {
+        mLessBoringHeadsUp = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LESS_BORING_HEADS_UP, 1,
+                UserHandle.USER_CURRENT) == 1;
     }
 
     private void updateRecentsIconPack() {
@@ -8351,7 +8366,10 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
     protected boolean shouldPeek(Entry entry, StatusBarNotification sbn) {
-
+        boolean isImportantHeadsUp = false;
+        String notificationPackageName = sbn.getPackageName().toLowerCase();
+        isImportantHeadsUp = notificationPackageName.contains("dialer") ||
+                notificationPackageName.contains("messaging");
         // get the info from the currently running task
         List<ActivityManager.RunningTaskInfo> taskInfo = mAm.getRunningTasks(1);
         if(taskInfo != null && !taskInfo.isEmpty()) {
@@ -8366,8 +8384,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             return false;
         }
 
-        if (!mUseHeadsUp || isDeviceInVrMode()) {
-            if (DEBUG) Log.d(TAG, "No peeking: no huns or vr mode");
+
+        if (!mUseHeadsUp || isDeviceInVrMode() || (!isDozing() && mLessBoringHeadsUp &&
+                !isImportantHeadsUp)) {
+            if (DEBUG) Log.d(TAG, "No peeking: no huns or vr mode or less boring headsup enabled");
             return false;
         }
 
