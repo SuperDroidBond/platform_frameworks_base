@@ -46,4 +46,6 @@
     <!-- PiP Tile -->
     <string name="quick_settings_pip_label">PiP</string>
 
+    <string name="statusbar_items_title">Statusbar items</string>
+
 </resources>
