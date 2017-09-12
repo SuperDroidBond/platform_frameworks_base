@@ -4096,6 +4096,8 @@ public final class Settings {
          */
         public static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
 
+        /** Beginning of VALIDUS custom setttings**/
+
         /**
          * Whether the phone vibrates on disconnect
          * @hide
@@ -4708,6 +4710,16 @@ public final class Settings {
          * @hide
          */
         public static final String SLIM_RECENTS_BLACKLIST_VALUES = "slim_recents_blacklist_values";
+
+        /**
+         * Immersive recents options
+         *
+         * 0 = Default AOSP look
+         * 1 = Statusbar only
+         * 2 = Navbar only
+         * 3 = Fullscreen
+         */
+        public static final String IMMERSIVE_RECENTS = "immersive_recents";
 
 
         /**
