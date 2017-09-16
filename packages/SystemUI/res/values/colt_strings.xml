@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-/**
- * Copyright (c) 2009, The Android Open Source Project
- * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017, The LineageOS Project
- * Copyright (c) 2017, ColtOS Project
+ * Copyright (c) 2017 ColtOS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,4 +49,8 @@
     <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
 
     <string name="recents_free_ram">Free RAM: %1$d MB</string>
+   
+    <!-- volte icon switch -->
+    <string name="status_bar_volte">VOLTE</string>
+
 </resources>
