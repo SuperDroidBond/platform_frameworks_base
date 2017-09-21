@@ -61,4 +61,8 @@
 
   <java-symbol type="bool" name="config_deviceHasButtonBacklight" />
 
+  <!-- DUI -->
+  <java-symbol type="anim" name="du_app_in" />
+  <java-symbol type="anim" name="du_app_out" />
+
 </resources>
