@@ -4432,6 +4432,12 @@ public final class Settings {
          */
 
         /**
+         * Whether to enable scrolling in the small quick settings
+         * @hide
+         */
+        public static final String QS_QUICKBAR_SCROLL_ENABLED = "qs_quickbar_scroll_enabled";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
