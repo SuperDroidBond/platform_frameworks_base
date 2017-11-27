@@ -36,4 +36,7 @@
     <color name="generic_theme_primary_dark">#346AC3</color>
     <color name="generic_theme_accent">#3B77DB</color>
 
+    <!-- Ambient Notification icon/text dynamic tint -->
+    <color name="notification_text_default_color">@android:color/notification_text_default_color</color>
+
 </resources>
