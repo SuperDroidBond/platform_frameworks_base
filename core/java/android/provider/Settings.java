@@ -4406,22 +4406,6 @@ public final class Settings {
         public static final String HEADSET_CONNECT_PLAYER = "headset_connect_player";
 
         /**
-         * Whether the proximity sensor will adjust call to speaker
-         */
-        public static final String PROXIMITY_AUTO_SPEAKER = "proximity_auto_speaker";
-
-        /**
-         * Time delay to activate speaker after proximity sensor triggered
-         */
-        public static final String PROXIMITY_AUTO_SPEAKER_DELAY = "proximity_auto_speaker_delay";
-
-        /**
-         * Whether the proximity sensor will adjust call to speaker,
-         * only while in call (not while ringing on outgoing call)
-         */
-        public static final String PROXIMITY_AUTO_SPEAKER_INCALL_ONLY = "proximity_auto_speaker_incall_only";
-
-        /**
          * Applications list where heasdup should't show
          *
          * @hide
@@ -4934,6 +4918,38 @@ public final class Settings {
          */
         public static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
 
+
+	 /**
+         * Whether the proximity sensor will adjust call to speaker
+         */
+        public static final String PROXIMITY_AUTO_SPEAKER = "proximity_auto_speaker";
+
+        /**
+         * Time delay to activate speaker after proximity sensor triggered
+         */
+        public static final String PROXIMITY_AUTO_SPEAKER_DELAY = "proximity_auto_speaker_delay";
+
+        /**
+         * Whether the proximity sensor will adjust call to speaker,
+         * only while in call (not while ringing on outgoing call)
+         */
+        public static final String PROXIMITY_AUTO_SPEAKER_INCALL_ONLY = "proximity_auto_speaker_incall_only";
+
+        /**
+         * Whether the use proximity sensor for answering incoming ring
+         */
+        public static final String PROXIMITY_AUTO_ANSWER_INCALL_ONLY = "proximity_auto_answer_incall_only";
+
+        /**
+         * Time delay to activate auto answer on ring when headset is plugged
+         */
+        public static final String AUTO_ANSWER_DELAY = "auto_answer_delay";
+
+        /**
+         * Whether to enable auto answer on ring when headset is plugged
+         */
+        public static final String AUTO_ANSWER_CALL_KEY = "auto_answer_call_key";
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -5130,9 +5146,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_COLUMNS_PORTRAIT);
             PRIVATE_SETTINGS.add(QS_COLUMNS_LANDSCAPE);
             PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
-            PRIVATE_SETTINGS.add(PROXIMITY_AUTO_SPEAKER);
-            PRIVATE_SETTINGS.add(PROXIMITY_AUTO_SPEAKER_DELAY);
-            PRIVATE_SETTINGS.add(PROXIMITY_AUTO_SPEAKER_INCALL_ONLY);
             PRIVATE_SETTINGS.add(QS_QUICKBAR_SCROLL_ENABLED);
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER);
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_SHADOW);
