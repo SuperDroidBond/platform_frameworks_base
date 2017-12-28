@@ -95,6 +95,14 @@ public class KeyguardHostView extends FrameLayout implements SecurityCallback {
                 }
             }
         }
+
+        @Override
+        public void onTrustChanged(int userId) {
+            if (userId != KeyguardUpdateMonitor.getCurrentUser()) return;
+            if (mKeyguardUpdateMonitor.getUserCanSkipBouncer(userId) && mKeyguardUpdateMonitor.getUserHasTrust(userId)){
+                dismiss(false, userId);
+            }
+        }
     };
 
     // Whether the volume keys should be handled by keyguard. If true, then
@@ -112,6 +120,7 @@ public class KeyguardHostView extends FrameLayout implements SecurityCallback {
 
     public KeyguardHostView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mKeyguardUpdateMonitor = KeyguardUpdateMonitor.getInstance(context);
         KeyguardUpdateMonitor.getInstance(context).registerCallback(mUpdateCallback);
     }
 
