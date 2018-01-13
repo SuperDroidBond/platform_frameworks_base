@@ -81,4 +81,6 @@
     <!-- Whether the device supports Smart Pixels -->
     <bool name="config_enableSmartPixels">false</bool>
 
+    <bool name="config_dozeAlwaysOnDisplayEnabledDefault">false</bool>
+
 </resources>
