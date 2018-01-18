@@ -4585,6 +4585,9 @@ message MetricsEvent {
     // logged when we cancel an app transition.
     APP_TRANSITION_CANCELLED = 1144;
 
+    // Tag of a field representing a duration on autofill-related metrics.
+    FIELD_AUTOFILL_DURATION = 1145;
+
     // ---- End O-MR1 Constants, all O-MR1 constants go above this line ----
 
     // ACTION: Stop an app and turn on background check
