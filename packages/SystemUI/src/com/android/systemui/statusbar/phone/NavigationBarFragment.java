@@ -513,12 +513,12 @@ public class NavigationBarFragment extends Fragment implements Callbacks, Naviga
         }
 
         ButtonDispatcher accessibilityButton = mNavigationBarView.getAccessibilityButton();
+        setDoubleTapToSleep();
         if (accessibilityButton != null) {
             accessibilityButton.setOnClickListener(this::onAccessibilityClick);
             accessibilityButton.setOnLongClickListener(this::onAccessibilityLongClick);
             updateAccessibilityServicesState(mAccessibilityManager);
         }
-        setDoubleTapToSleep();
     }
 
     private boolean onHomeTouch(View v, MotionEvent event) {
@@ -928,6 +928,8 @@ public class NavigationBarFragment extends Fragment implements Callbacks, Naviga
     public void setDoubleTapToSleep() {
         if (mNavigationBarView != null) {
             mNavigationBarView.setDoubleTapToSleep();
+        }
+    }
 
     public void setMediaPlaying(boolean playing) {
         if (mNavigationBarView != null) {
@@ -938,6 +940,12 @@ public class NavigationBarFragment extends Fragment implements Callbacks, Naviga
     public void setPanelExpanded(boolean expanded) {
         if (mNavigationBarView != null) {
             mNavigationBarView.setNotificationPanelExpanded(expanded);
+        }
+    }
+
+    public void setPulseColors(boolean colorizedMedia, int[] colors) {
+        if (mNavigationBarView != null) {
+            mNavigationBarView.setPulseColors(colorizedMedia, colors);
         }
     }
 }

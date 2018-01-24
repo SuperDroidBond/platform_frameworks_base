@@ -2047,7 +2047,6 @@ public final class PowerManagerService extends SystemService
         if ((dirty & (DIRTY_WAKE_LOCKS | DIRTY_USER_ACTIVITY
                 | DIRTY_WAKEFULNESS | DIRTY_SETTINGS)) != 0) {
             mHandler.removeMessages(MSG_USER_ACTIVITY_TIMEOUT);
-
             boolean wakeLocksValue = (dirty & DIRTY_WAKE_LOCKS) != 0;
             boolean userActivityValue = (dirty & DIRTY_USER_ACTIVITY) != 0;
             boolean wakefullnessValue = (dirty & DIRTY_WAKEFULNESS) != 0;
@@ -2065,17 +2064,12 @@ public final class PowerManagerService extends SystemService
                 final int screenDimDuration = getScreenDimDurationLocked(screenOffTimeout);
                 final boolean userInactiveOverride = mUserInactiveOverrideFromWindowManager;
 
+
                 mUserActivitySummary = 0;
                 if (mWakefulness == WAKEFULNESS_AWAKE && mLastUserActivityTime >= mLastWakeTime) {
                     nextTimeout = mLastUserActivityTime
                             + screenOffTimeout - screenDimDuration;
                     if (now < nextTimeout) {
-                        if (now > mLastUserActivityTime + BUTTON_ON_DURATION) {
-                            mButtonsLight.setBrightness(0);
-                        } else {
-                            mButtonsLight.setBrightness(mDisplayPowerRequest.screenBrightness);
-                            nextTimeout = now + BUTTON_ON_DURATION;
-                        } else {
                         if (mButtonTimeoutEnabled && (userActivityValue || settingsValue)){
                             final boolean buttonPressed = mEvent == PowerManager.USER_ACTIVITY_EVENT_BUTTON;
                             if (mButtonBacklightOnTouchOnly) {
@@ -2085,6 +2079,12 @@ public final class PowerManagerService extends SystemService
                             } else {
                                 triggerButtonTimeoutEvent(now);
                             }
+                        }
+                        if (now > mLastUserActivityTime + BUTTON_ON_DURATION) {
+                            mButtonsLight.setBrightness(0);
+                        } else {
+                            mButtonsLight.setBrightness(mDisplayPowerRequest.screenBrightness);
+                            nextTimeout = now + BUTTON_ON_DURATION;
                         }
                         mUserActivitySummary = USER_ACTIVITY_SCREEN_BRIGHT;
                     } else {

@@ -85,11 +85,11 @@ public class CommandQueue extends IStatusBar.Stub {
     private static final int MSG_SET_TOP_APP_HIDES_STATUS_BAR  = 37 << MSG_SHIFT;
     private static final int MSG_TOGGLE_CAMERA_FLASH           = 38 << MSG_SHIFT;
     private static final int MSG_RESTART_UI                    = 39 << MSG_SHIFT;
-    private static final int MSG_SCREEN_PINNING_STATE_CHANGED  = 38 << MSG_SHIFT;
-    private static final int MSG_LEFT_IN_LANDSCAPE_STATE_CHANGED  = 39 << MSG_SHIFT;
-    private static final int MSG_TOGGLE_FLASHLIGHT             = 40 << MSG_SHIFT;
-    private static final int MSG_TOGGLE_NAVIGATION_EDITOR      = 41 << MSG_SHIFT;
-    private static final int MSG_DISPATCH_NAVIGATION_EDITOR_RESULTS = 42 << MSG_SHIFT;
+    private static final int MSG_SCREEN_PINNING_STATE_CHANGED  = 40 << MSG_SHIFT;
+    private static final int MSG_LEFT_IN_LANDSCAPE_STATE_CHANGED  = 41 << MSG_SHIFT;
+    private static final int MSG_TOGGLE_FLASHLIGHT             = 42 << MSG_SHIFT;
+    private static final int MSG_TOGGLE_NAVIGATION_EDITOR      = 43 << MSG_SHIFT;
+    private static final int MSG_DISPATCH_NAVIGATION_EDITOR_RESULTS = 44 << MSG_SHIFT;
 
     public static final int FLAG_EXCLUDE_NONE = 0;
     public static final int FLAG_EXCLUDE_SEARCH_PANEL = 1 << 0;

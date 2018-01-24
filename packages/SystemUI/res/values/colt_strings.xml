@@ -103,5 +103,8 @@
     <string name="battery_level_good_sound" translatable="false">/system/media/audio/ui/GoodBattery.ogg</string>
     <string name="notification_channel_charge_alert">Optimal battery charge level</string>
 
+    <!-- SysUI Tuner -->
+    <string name="systemui_tuner_navbar_title">Stock settings</string>
+
 </resources>
 
