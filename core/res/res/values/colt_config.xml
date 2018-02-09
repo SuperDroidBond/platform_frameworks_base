@@ -83,6 +83,9 @@
     <!-- Whether the device supports Smart Pixels -->
     <bool name="config_enableSmartPixels">false</bool>
 
+    <!-- Enable full screen DT2S in lockscreen -->
+    <bool name="fullScreenDT2S">false</bool>
+
     <bool name="config_dozeAlwaysOnDisplayEnabledDefault">false</bool>
 
     <!-- EdgeGesture service -->

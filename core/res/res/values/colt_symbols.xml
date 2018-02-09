@@ -141,4 +141,7 @@
 
   <java-symbol type="bool" name="config_canForceDozeNotifications" />
 
+  <!-- Enable full screen DT2S in lockscreen -->
+  <java-symbol type="bool" name="fullScreenDT2S" />
+
 </resources>
