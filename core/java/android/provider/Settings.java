@@ -4411,6 +4411,14 @@ public final class Settings {
         public static final String SHOW_BATTERY_IMAGE = "status_bar_show_battery_image";
 
         /**
+         * 0 - wallpaper based
+         * 1 - force light
+         * 2 - force dark
+         * @hide
+         */
+        public static final String SYSTEM_UI_THEME = "system_ui_theme";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
