@@ -62,4 +62,7 @@
   <java-symbol type="anim" name="du_app_in" />
   <java-symbol type="anim" name="du_app_out" />
 
+  <!-- Notification info -->
+  <java-symbol type="color" name="notification_info_button_text" />
+
 </resources>
