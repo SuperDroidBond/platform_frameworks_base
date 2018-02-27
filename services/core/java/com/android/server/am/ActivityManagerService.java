@@ -3894,13 +3894,6 @@ public class ActivityManagerService extends IActivityManager.Stub
                 mNativeDebuggingApp = null;
             }
 
-            // Check if zygote should refresh its fonts
-            boolean refreshFont = false;
-            if (SystemProperties.getBoolean(PROP_REFRESH_FONT, false)) {
-                SystemProperties.set(PROP_REFRESH_FONT, "false");
-                refreshFont = true;
-            }
-
             String invokeWith = null;
             if ((app.info.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0) {
                 // Debuggable apps may include a wrapper script with their library directory.
