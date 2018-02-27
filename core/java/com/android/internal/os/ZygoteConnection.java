@@ -410,9 +410,6 @@ class ZygoteConnection {
          */
         String appDataDir;
 
-        /** from --refresh_theme */
-        boolean refreshTheme;
-
         /**
          * Whether to preload a package, with the package path in the remainingArgs.
          */
