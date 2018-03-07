@@ -192,7 +192,7 @@ class ZygoteConnection {
             }
         }
 
-        if (parsedArgs.refreshFont) {
+        if (parsedArgs.refreshTheme) {
             Typeface.recreateDefaults();
         }
 
@@ -384,6 +384,9 @@ class ZygoteConnection {
 
         /** from --invoke-with */
         String invokeWith;
+
+        /** from --refresh-theme */
+        boolean refreshTheme;
 
         /**
          * Any args after and including the first non-option arg

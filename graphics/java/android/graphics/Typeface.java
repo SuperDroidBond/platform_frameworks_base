@@ -854,8 +854,9 @@ public class Typeface {
         for (int i = 0; i < families.length; i++) {
             ptrArray[i] = families[i].mNativePtr;
         }
-        return new Typeface(nativeCreateFromArray(
+        Typeface typeface =  new Typeface(nativeCreateFromArray(
                 ptrArray, RESOLVE_BY_FONT_TABLE, RESOLVE_BY_FONT_TABLE));
+        return typeface;
     }
 
     /**
@@ -880,7 +881,8 @@ public class Typeface {
         for (int i = 0; i < sFallbackFonts.length; i++) {
             ptrArray[i + families.length] = sFallbackFonts[i].mNativePtr;
         }
-        return new Typeface(nativeCreateFromArray(ptrArray, weight, italic));
+        Typeface typeface = new Typeface(nativeCreateFromArray(ptrArray, weight, italic));
+        return typeface;
     }
 
     // don't allow clients to call this directly
@@ -1008,7 +1010,7 @@ public class Typeface {
         File fontDir;
 
         if (themeConfigFile.exists()) {
-            // /data/system/theme/fonts/ exits so use it and copy default fonts
+            // /data/system/theme/fonts/ exists so use it and copy default fonts
             configFile = themeConfigFile;
             fontDir = getThemeFontDirLocation();
         } else {
@@ -1020,6 +1022,10 @@ public class Typeface {
             FontConfig fontConfig = FontListParser.parse(configFile,
                     fontDir.getAbsolutePath());
             FontConfig systemFontConfig = null;
+
+            // If the fonts are coming from a theme, we will need to make sure that we include
+            // any font families from the system fonts that the theme did not include.
+            // NOTE: All the system font families without names ALWAYS get added.
             if (configFile == themeConfigFile) {
                 systemFontConfig = FontListParser.parse(systemConfigFile,
                         getSystemFontDirLocation().getAbsolutePath());
@@ -1099,7 +1105,6 @@ public class Typeface {
         sSystemFontMap.clear();
         sTypefaceCache.clear();
         init();
-
         DEFAULT_BOLD_INTERNAL = create((String) null, Typeface.BOLD);
         SANS_SERIF_INTERNAL = create("sans-serif", 0);
         SERIF_INTERNAL = create("serif", 0);
@@ -1110,7 +1115,6 @@ public class Typeface {
         SANS_SERIF.native_instance = SANS_SERIF_INTERNAL.native_instance;
         SERIF.native_instance = SERIF_INTERNAL.native_instance;
         MONOSPACE.native_instance = MONOSPACE_INTERNAL.native_instance;
-
         sDefaults[2] = create((String) null, Typeface.ITALIC);
         sDefaults[3] = create((String) null, Typeface.BOLD_ITALIC);
     }
