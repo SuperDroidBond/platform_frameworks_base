@@ -68,4 +68,9 @@
   <!-- Notification info -->
   <java-symbol type="color" name="notification_info_button_text" />
 
+  <!-- Forcefully tint notification icon text -->
+  <java-symbol type="bool" name="config_useDarkBgNotificationIconTextTinting" />
+  <java-symbol type="bool" name="config_useDarkBgNotificationTinting_override" />
+  <java-symbol type="bool" name="config_notificationTinting_override" />
+
 </resources>
