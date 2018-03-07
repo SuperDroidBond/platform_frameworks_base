@@ -192,9 +192,9 @@ class ZygoteConnection {
             }
         }
 
-            if (parsedArgs.refreshTheme) {
-                Typeface.recreateDefaults();
-             }
+        if (parsedArgs.refreshTheme) {
+            Typeface.recreateDefaults();
+        }
 
         /**
          * In order to avoid leaking descriptors to the Zygote child,
@@ -384,6 +384,9 @@ class ZygoteConnection {
 
         /** from --invoke-with */
         String invokeWith;
+
+        /** from --refresh-theme */
+        boolean refreshTheme;
 
         /**
          * Any args after and including the first non-option arg
