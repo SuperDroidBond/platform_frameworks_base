@@ -67,4 +67,9 @@
         <item name="widgetLayout">@*android:layout/preference_widget_switch</item>
     </style>
 
+    <!-- Tuner Theme-->
+    <style name="ExTunerSettings" parent="@android:style/Theme.Material.Settings">
+        <item name="preferenceTheme">@style/TunerPreferenceTheme</item>
+    </style>
+
 </resources>
