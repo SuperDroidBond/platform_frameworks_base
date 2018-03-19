@@ -8406,6 +8406,13 @@ public final class Settings {
          */
         public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
 
+	/**
+         * Whether to allow untrusted overlays to be installed
+         *
+         * @hide
+         */
+        public static final String ALLOW_UNTRUSTED_OVERLAYS = "allow_untrusted_overlays";
+
         /**
          * This are the settings to be backed up.
          *
