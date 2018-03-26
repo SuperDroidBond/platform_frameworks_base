@@ -6223,9 +6223,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.LAST_DOZE_AUTO_BRIGHTNESS),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.DOUBLE_TAP_SLEEP_NAVBAR),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
@@ -6270,9 +6267,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             if (uri.equals(Settings.System.getUriFor(
                     Settings.System.LAST_DOZE_AUTO_BRIGHTNESS))) {
                 updateDozeBrightness();
-            } else  if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.DOUBLE_TAP_SLEEP_NAVBAR))) {
-                    setDoubleTapNavbar();
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN))) {
                 setLockscreenDoubleTapToSleep();
@@ -6319,7 +6313,6 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         public void update() {
             updateDozeBrightness();
-	    setDoubleTapNavbar();
             setLockscreenDoubleTapToSleep();
             setBrightnessSlider();
             setLockscreenMediaMetadata();
