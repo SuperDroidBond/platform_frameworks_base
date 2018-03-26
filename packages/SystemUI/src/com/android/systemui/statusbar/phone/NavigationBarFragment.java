@@ -925,10 +925,6 @@ public class NavigationBarFragment extends Fragment implements Callbacks, Naviga
         return navigationBarView;
     }
 
-    public void setDoubleTapToSleep() {
-        if (mNavigationBarView != null) {
-            mNavigationBarView.setDoubleTapToSleep();
-
     public void setMediaPlaying(boolean playing) {
         if (mNavigationBarView != null) {
             mNavigationBarView.setMediaPlaying(playing);

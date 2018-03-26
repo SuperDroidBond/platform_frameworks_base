@@ -6390,9 +6390,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.LAST_DOZE_AUTO_BRIGHTNESS),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.DOUBLE_TAP_SLEEP_NAVBAR),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
@@ -6440,9 +6437,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             if (uri.equals(Settings.System.getUriFor(
                     Settings.System.LAST_DOZE_AUTO_BRIGHTNESS))) {
                 updateDozeBrightness();
-            } else  if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.DOUBLE_TAP_SLEEP_NAVBAR))) {
-                    setDoubleTapNavbar();
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN))) {
                 setLockscreenDoubleTapToSleep();
@@ -6493,7 +6487,6 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         public void update() {
             updateDozeBrightness();
-	    setDoubleTapNavbar();
             setLockscreenDoubleTapToSleep();
             setBrightnessSlider();
             setLockscreenMediaMetadata();
@@ -6517,12 +6510,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         mTickerEnabled = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_SHOW_TICKER, 1,
                 UserHandle.USER_CURRENT);
-    }
-
-    private void setDoubleTapNavbar() {
-        if (mNavigationBar != null) {
-            mNavigationBar.setDoubleTapToSleep();
-       }
     }
 
     private void setLockscreenDoubleTapToSleep() {
