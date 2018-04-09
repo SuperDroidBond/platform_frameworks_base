@@ -68,6 +68,7 @@ public class SignalStrength implements Parcelable {
     private int mTdScdmaRscp;
 
     private boolean isGsm; // This value is set by the ServiceStateTracker onSignalStrengthResult
+    private int[] mThreshRsrp;
 
     /**
      * Create a new SignalStrength from a intent notifier Bundle
@@ -454,6 +455,14 @@ public class SignalStrength implements Parcelable {
     }
 
     /**
+     * Set custom operator-specific RSRP Threshold values
+     * @hide
+     */
+    public void setThreshRsrp(int[] threshRsrp) {
+        mThreshRsrp = threshRsrp;
+    }
+
+    /**
      * @param lteRsrpBoost - signal strength offset
      *
      * Used by phone to set the lte signal strength offset which will be
@@ -819,23 +828,26 @@ public class SignalStrength implements Parcelable {
          */
         int rssiIconLevel = SIGNAL_STRENGTH_NONE_OR_UNKNOWN, rsrpIconLevel = -1, snrIconLevel = -1;
 
-        int[] threshRsrp = Resources.getSystem().getIntArray(
-                com.android.internal.R.array.config_lteDbmThresholds);
-        if (threshRsrp.length != 6) {
+        if (mThreshRsrp == null) {
+            mThreshRsrp = Resources.getSystem().getIntArray(
+                    com.android.internal.R.array.config_lteDbmThresholds);
+        }
+
+        if (mThreshRsrp.length != 6) {
             Log.wtf(LOG_TAG, "getLteLevel - config_lteDbmThresholds has invalid num of elements."
                     + " Cannot evaluate RSRP signal.");
         } else {
-            if (mLteRsrp > threshRsrp[5]) {
+            if (mLteRsrp > mThreshRsrp[5]) {
                 rsrpIconLevel = -1;
-            } else if (mLteRsrp >= (threshRsrp[4] - mLteRsrpBoost)) {
+            } else if (mLteRsrp >= (mThreshRsrp[4] - mLteRsrpBoost)) {
                 rsrpIconLevel = SIGNAL_STRENGTH_GREAT;
-            } else if (mLteRsrp >= (threshRsrp[3] - mLteRsrpBoost)) {
+            } else if (mLteRsrp >= (mThreshRsrp[3] - mLteRsrpBoost)) {
                 rsrpIconLevel = SIGNAL_STRENGTH_GOOD;
-            } else if (mLteRsrp >= (threshRsrp[2] - mLteRsrpBoost)) {
+            } else if (mLteRsrp >= (mThreshRsrp[2] - mLteRsrpBoost)) {
                 rsrpIconLevel = SIGNAL_STRENGTH_MODERATE;
-            } else if (mLteRsrp >= (threshRsrp[1] - mLteRsrpBoost)) {
+            } else if (mLteRsrp >= (mThreshRsrp[1] - mLteRsrpBoost)) {
                 rsrpIconLevel = SIGNAL_STRENGTH_POOR;
-            } else if (mLteRsrp >= threshRsrp[0]) {
+            } else if (mLteRsrp >= mThreshRsrp[0]) {
                 rsrpIconLevel = SIGNAL_STRENGTH_NONE_OR_UNKNOWN;
             }
         }
