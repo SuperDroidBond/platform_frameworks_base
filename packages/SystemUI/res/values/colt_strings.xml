@@ -50,6 +50,9 @@
     <!-- CPUInfo tile -->
     <string name="quick_settings_cpuinfo_label">CPU Info</string>
 
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Screenshot</string>
     <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
