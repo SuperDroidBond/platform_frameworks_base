@@ -71,4 +71,5 @@
     <!-- App permission tint -->
     <color name="app_permission_icon_tint">@android:color/black</color>
 
+
 </resources>
