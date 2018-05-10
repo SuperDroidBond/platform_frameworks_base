@@ -292,7 +292,8 @@ public class Toast {
         View v = inflate.inflate(com.android.internal.R.layout.transient_notification, null);
         TextView tv = (TextView)v.findViewById(com.android.internal.R.id.message);
         tv.setText(text);
-        tv.setTextColor(textColor);
+	tv.setTextColor(Settings.System.getInt(context.getContentResolver(),
+            Settings.System.TOAST_TEXT_COLOR, 0xffffffff));
         result.mNextView = v;
         result.mDuration = duration;
 
