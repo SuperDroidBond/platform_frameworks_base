@@ -518,7 +518,6 @@ public class NavigationBarFragment extends Fragment implements Callbacks, Naviga
             accessibilityButton.setOnLongClickListener(this::onAccessibilityLongClick);
             updateAccessibilityServicesState(mAccessibilityManager);
         }
-        setDoubleTapToSleep();
     }
 
     private boolean onHomeTouch(View v, MotionEvent event) {
