@@ -725,31 +725,31 @@ public class CommandQueue extends IStatusBar.Stub {
                         mCallbacks.get(i).setTopAppHidesStatusBar(msg.arg1 != 0);
                     }
                     break;
-                case MSG_TOGGLE_CAMERA_FLASH:
-                    for (int i = 0; i < mCallbacks.size(); i++) {
-                        mCallbacks.get(i).toggleCameraFlash();
-                    }
-                    break;
-                case MSG_RESTART_UI:
-                    for (int i = 0; i < mCallbacks.size(); i++) {
-                        mCallbacks.get(i).restartUI();
-                    }
-                    break;
-                case MSG_SCREEN_PINNING_STATE_CHANGED:
-                    for (int i = 0; i < mCallbacks.size(); i++) {
-                        mCallbacks.get(i).screenPinningStateChanged(msg.arg1 != 0);
-                    }
-                    break;
-                case MSG_LEFT_IN_LANDSCAPE_STATE_CHANGED:
-                    for (int i = 0; i < mCallbacks.size(); i++) {
-                        mCallbacks.get(i).leftInLandscapeChanged(msg.arg1 != 0);
-                    }
-                    break;
-                case MSG_TOGGLE_FLASHLIGHT:
-                    for (int i = 0; i < mCallbacks.size(); i++) {
-                        mCallbacks.get(i).toggleFlashlight();
-                    }
-                    break;
+//                case MSG_TOGGLE_CAMERA_FLASH:
+  //                  for (int i = 0; i < mCallbacks.size(); i++) {
+    //                    mCallbacks.get(i).toggleCameraFlash();
+      //              }
+        //            break;
+//                case MSG_RESTART_UI:
+  //                  for (int i = 0; i < mCallbacks.size(); i++) {
+    //                    mCallbacks.get(i).restartUI();
+      //              }
+        //            break;
+//                case MSG_SCREEN_PINNING_STATE_CHANGED:
+  //                  for (int i = 0; i < mCallbacks.size(); i++) {
+    //                    mCallbacks.get(i).screenPinningStateChanged(msg.arg1 != 0);
+      //              }
+        //            break;
+//                case MSG_LEFT_IN_LANDSCAPE_STATE_CHANGED:
+  //                  for (int i = 0; i < mCallbacks.size(); i++) {
+    //                    mCallbacks.get(i).leftInLandscapeChanged(msg.arg1 != 0);
+      //              }
+        //            break;
+//                case MSG_TOGGLE_FLASHLIGHT:
+  //                  for (int i = 0; i < mCallbacks.size(); i++) {
+    //                    mCallbacks.get(i).toggleFlashlight();
+     //               }
+      //              break;
                 case MSG_TOGGLE_NAVIGATION_EDITOR:
                     for (int i = 0; i < mCallbacks.size(); i++) {
                         mCallbacks.get(i).toggleNavigationEditor();
