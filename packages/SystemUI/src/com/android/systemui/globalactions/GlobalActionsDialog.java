@@ -1043,7 +1043,11 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
-            Action action = getItem(position);
+            return getView(position, convertView, parent, false);
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent, boolean noDivider) {
+	    Action action = getItem(position);
             View view = action.create(mContext, convertView, parent, LayoutInflater.from(mContext));
             if (!noDivider && position == 99) {
                 HardwareUiLayout.get(parent).setDivisionView(view);
