@@ -6632,7 +6632,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.RECENTS_ICON_PACK))) {
                 updateRecentsIconPack();
             } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.SYSTEM_UI_THEME))) ||
+                    Settings.System.SYSTEM_UI_THEME)) ||
 		uri.equals(Settings.Secure.getUriFor(Settings.Secure.SYSUI_ROUNDED_FWVALS))) {
                 updateTheme();
             } else if (uri.equals(Settings.System.getUriFor(
