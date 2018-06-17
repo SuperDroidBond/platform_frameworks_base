@@ -1265,6 +1265,10 @@ public class RecentsView extends FrameLayout {
                 Settings.System.SHOW_CLEAR_ALL_RECENTS, 1, UserHandle.USER_CURRENT) != 0;
          }
      }
+	private boolean showWallpaperTint() {
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.WALLPAPER_RECENTS_TINT, 1, UserHandle.USER_CURRENT) == 1;
+         }
 
     /**
     * Extended SimpleOnScaleGestureListener to take
@@ -1370,9 +1374,5 @@ public class RecentsView extends FrameLayout {
                 restoreAlpha.start();
             }
         }
-   private boolean showWallpaperTint() {
-        return Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.WALLPAPER_RECENTS_TINT, 1, UserHandle.USER_CURRENT) == 1;
-	}
     }
 }
